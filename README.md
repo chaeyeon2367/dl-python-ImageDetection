@@ -1,3 +1,7 @@
+<br/>
+<br/>
+
+
 # Analysis for the Image Detection using the textile fabric data 👕
 
 <br/>
