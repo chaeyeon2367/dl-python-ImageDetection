@@ -4,6 +4,8 @@
 
 # Analysis for the Image Detection using the textile fabric data 👕
 
+A program that uses artificial intelligence to identify defects such as stains, scratches, and tears in textile fabric dataset
+
 <br/>
 
 ## 1. Dataset
@@ -23,6 +25,27 @@ Images have a size of 4096×256 pixels. Defective images have been denominated a
 - Defect 19 on fabric 02 and its mask (only an area of 256×256 is shown).
 
 
+<br/>
+<br/>
+
+- **Good** 
+
+<img width="813" alt="Capture d’écran 2023-10-26 à 16 03 34" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/63888437-1145-4d90-9f2c-8fc76e422e45">
+
+- **Defective**
+
+<img width="807" alt="Capture d’écran 2023-10-26 à 16 04 50" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/73e6664d-aeb8-4d5a-af5d-564b0b4d35de">
+
+
+
+- **Data Analysis**
+
+<img width="621" alt="Capture d’écran 2023-10-26 à 16 07 48" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/1c90fcbf-4a1a-46a5-ac71-f0ef2fffc8fc">
+
+
+=> Similar types of defects appear in various directions and locations
+
+
 <u>**link** : https://www.aitex.es/afid/ </u>
 
 <br/>
@@ -33,6 +56,10 @@ Images have a size of 4096×256 pixels. Defective images have been denominated a
 - Model determines whether fabric fails and automatically saves to Excel
 
   => Learn the classifier to determine the failure of the fabric, automate Excel input
+
+<br/>
+
+<img width="656" alt="Capture d’écran 2023-10-26 à 15 16 49" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/4d73e43d-3fdc-4812-a656-1985404be54a">
 
 <br/>
 
@@ -52,12 +79,74 @@ Images have a size of 4096×256 pixels. Defective images have been denominated a
 
 <br/>
 
-## 4. Check feasibility
+
+
+## 4. Program structure
 
 <br/>
 
-* Create a test program
+  * Test Program
 
 
+<img width="475" alt="Capture d’écran 2023-10-26 à 15 45 58" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/91d3116b-b47c-4351-a2ff-a078a786409b">
 
-      
+
+  * Official Program
+
+
+<img width="613" alt="Capture d’écran 2023-10-26 à 15 50 47" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/f152cbcd-7f3b-4613-bfb0-945909354cf5">
+
+
+  * Training program
+
+    
+<img width="617" alt="Capture d’écran 2023-10-26 à 15 53 04" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/8d0f3141-6336-4b07-a5d0-be98572e22c2">
+
+
+  * Transmission priority
+
+
+<img width="569" alt="Capture d’écran 2023-10-26 à 16 02 53" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/099add3e-303c-4eb6-bb4e-6e04596a73cf">
+
+<br/>
+
+
+## 5. Algorithm
+
+
+<img width="617" alt="Capture d’écran 2023-10-26 à 15 53 04" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/8d0f3141-6336-4b07-a5d0-be98572e22c2">
+
+- Utilization of CNN architectures suitable for multi-scale feature analysis (utilizing skip connections, Inception, etc.)
+- Application of data augmentation to enhance algorithm accuracy (e.g., flip, rotation, translation)
+- Data serialization for efficient training (using TFRecord)
+- Performing oversampling to address data imbalance
+
+
+<br/>
+
+
+## 6. Data preparation -TFRecord
+
+TFRecord is a binary format for storing large amounts of data(dataset) efficiently.
+
+The main advantages of using TFRecord include:
+
+  1. **Efficiency**: TFRecord is a binary format, which makes it highly efficient for both reading and writing large datasets. It reduces the storage space required and accelerates data loading, which is crucial for training deep learning models on massive datasets.
+  2. **Serialization**: It enables easy serialization of complex data structures, such as images, audio, and sequences of numerical data. This serialization process is crucial for preparing data for machine learning tasks.
+  3. **Parallelization**: TFRecord files can be split into multiple shards, allowing for parallel processing and input pipeline optimization. This is beneficial when working with multi-core CPUs or distributed computing frameworks.
+  4. **Compression**: TFRecord supports data compression, which can further reduce storage and speed up data loading, especially when dealing with large datasets.
+Random Access: It allows for efficient random access to data, making it suitable for tasks like shuffling and batching data during training.
+  5. **Flexibility**: TFRecord can store data of varying data types, including images, audio, text, and numerical data, making it a versatile choice for machine learning applications.
+
+<br/>
+
+
+## 7. Data Augmentation
+
+This data augmentation technique helps increase the diversity of the training dataset and can improve the model's robustness and generalization.
+
+  1. **Flip**: It randomly flips the image both left-right and up-down with a 50% probability.
+  2. **Rotate**: It randomly rotates the image by a random angle between 0 and 360 degrees with a 50% probability. The interpolation method used is 'BILINEAR' for smoother rotation.
+  3. **Translation**: It randomly applies translation to the image by shifting it horizontally and vertically within the range of -10 to 10 units. The decision to apply translation is determined with a 50% probability. It uses 'BILINEAR' interpolation for smoother transformation.
+
+After these augmentation operations, the method returns the augmented image along with its label. 
