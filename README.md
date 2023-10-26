@@ -151,8 +151,10 @@ This data augmentation technique helps increase the diversity of the training da
 
 After these augmentation operations, the method returns the augmented image along with its label. 
 
+<br/>
 
-## 7. Inception Model(GoogLeNet)
+
+## 8. Inception Model(GoogLeNet)
 
 <img width="797" alt="Capture d’écran 2023-10-26 à 16 48 08" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/a41454d8-8cc7-4323-928c-7fa904ff151f">
 
