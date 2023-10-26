@@ -150,3 +150,18 @@ This data augmentation technique helps increase the diversity of the training da
   3. **Translation**: It randomly applies translation to the image by shifting it horizontally and vertically within the range of -10 to 10 units. The decision to apply translation is determined with a 50% probability. It uses 'BILINEAR' interpolation for smoother transformation.
 
 After these augmentation operations, the method returns the augmented image along with its label. 
+
+
+## 7. Inception Model(GoogLeNet)
+
+<img width="797" alt="Capture d’écran 2023-10-26 à 16 48 08" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/a41454d8-8cc7-4323-928c-7fa904ff151f">
+
+<u>**Ressource** : https://cloud.google.com/tpu/docs/inception-v3-advanced?hl=fr </u>
+
+The Inception architecture, also known as GoogleNet, is known for its ability to capture multi-scale features efficiently.
+
+- My model uses a series of inception blocks to capture multi-scale features in the input image, and it concludes with fully connected layers to make a binary classification prediction. 
+- My model is designed to handle images with a resolution of 256x256 pixels and three color channels.
+
+<br/>
+
