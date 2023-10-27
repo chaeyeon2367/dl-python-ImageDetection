@@ -167,3 +167,19 @@ The Inception architecture, also known as GoogleNet, is known for its ability to
 
 <br/>
 
+
+
+## 9. Results
+
+- Test program results
+
+<img width="670" alt="Capture d’écran 2023-10-27 à 12 03 40" src="https://github.com/chaeyeon2367/dl-python-ImageDetection/assets/63314860/8d871059-741c-4571-bebc-520123df655e">
+
+<br/>
+
+  1. I initially set a threshold of 0.5 to classify defects in textile image data. However, the model training results showed that it sometimes incorrectly predicted "fail" as "true" in the range of 0.5 to 0.7.
+  2. Therefore, I concluded that adjusting the threshold appropriately, considering the trade-off between false negatives and false positives, is the best way to fine-tune it for the application.
+  3. So, tuning the threshold to better suit the application is the most effective approach.
+
+
+
